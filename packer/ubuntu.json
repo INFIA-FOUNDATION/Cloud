@@ -1,0 +1,32 @@
+{
+  "variables": {
+    "aws_access_key": "",
+    "aws_secret_key": ""
+  },
+  "_source_ami_comments": "Ubuntu Server 16.04 LTS (HVM), SSD Volume Type",
+  "_vpc_comments": "in side effect vpc",
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `aws_access_key`}}",
+    "secret_key": "{{user `aws_secret_key`}}",
+    "region": "ap-northeast-1",
+    "source_ami": "ami-afb09dc8",
+    "instance_type": "t2.micro",
+    "ssh_username": "ubuntu",
+    "ami_name": "outsider-aws-ubuntu 16.04 {{timestamp}}",
+    "vpc_id": "vpc-c8533cac",
+    "subnet_id": "subnet-2784b551"
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "inline": [
+      "sudo touch /etc/apt/sources.list.d/pgdg.list",
+      "sudo bash -c 'echo \"deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main\" >> /etc/apt/sources.list.d/pgdg.list'",
+      "wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -",
+      "sudo apt-get update",
+      "sudo apt-get install -y postgresql-client-9.6 mysql-client",
+      "curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash",
+      "sudo -i sh -c 'curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash'"
+    ]
+  }]
+}

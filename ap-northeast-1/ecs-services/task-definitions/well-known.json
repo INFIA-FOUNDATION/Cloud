@@ -1,0 +1,22 @@
+[
+  {
+    "name": "well-known",
+    "image": "outsideris/sideeffect-wellknown:972f1b4",
+    "cpu": 50,
+    "memory": 64,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 80
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "ap-northeast-1-ecs",
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "sideeffect-cluster"
+      }
+    }
+  }
+]
