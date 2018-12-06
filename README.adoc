@@ -1,3 +1,7 @@
-= AWS Infrastructure
+= Infrastructure
 
-My AWS managed by link:https://www.terraform.io/[terraform]
+VPC - api_web3/api_server/api_list
+ECS - a.s - elastic beanstalk
+Docker - server
+Database - MLP, fuzzy bayesian, Evolutionary Algorithm
+
