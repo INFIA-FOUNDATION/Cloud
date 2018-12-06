@@ -8,4 +8,4 @@ Docker - server
 
 Database - MLP, fuzzy bayesian, Evolutionary Algorithm
 
--Terraform
+tool : Terraform
